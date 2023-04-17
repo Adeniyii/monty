@@ -108,3 +108,37 @@ void swap(stack_t **stack, unsigned int line_number)
 void nop(stack_t **stack __attribute__((unused)),
 	unsigned int line_number __attribute__((unused)))
 {}
+
+/**
+ * rotl - rotate the stack to the top.
+ * The top element of the stack becomes the last one,
+ * and the second top element of the stack becomes the first one
+ *
+ * @stack: the stack, represented as a pointer to a linked list
+ * @line_number: current line number of file being parsed
+ */
+void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *head = *stack;
+	stack_t *tmp = *stack;
+
+	if (!head || !head->next || !stack)
+		exit(EXIT_SUCCESS);
+
+	while (1)
+	{
+		if (!tmp->next)
+		{
+			*stack = head->next;
+			head->next->prev = NULL;
+
+			head->next = NULL;
+			head->prev = tmp;
+
+			tmp->next = head;
+			break;
+		}
+		tmp = tmp->next;
+	}
+
+}

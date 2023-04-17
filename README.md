@@ -62,19 +62,19 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 
 ## Opcodes
 
-| Opcode | Usage        | Description                                                              |
-| ------ | ------------ | ------------------------------------------------------------------------ |
-| push   | `push <int>` | pushes an element to the stack.                                          |
-| pall   | `pall`       | prints all the values on the stack, starting from the top of the stack.  |
-| pint   | `pint`       | prints the int value at the top of the stack, followed by a new line.    |
-| pchar  | `pchar`      | prints the char value at the top of the stack, followed by a new line.   |
-| pstr   | `pstr`       | prints the char values in the stack as a string, followed by a new line. |
-| pop    | `pop`        | pops the value at the top of the stack.                                  |
-| swap   | `swap`       | swaps the two top elements of the stack.                                 |
-| add    | `add`        | adds the two top elements of the stack.                                  |
-| sub    | `sub`        | subs the two top elements of the stack.                                  |
-| div    | `div`        | divs the top element from the second top element of the stack.           |
-| mul    | `mul`        | multiplies the two top elements of the stack.                            |
-| mod    | `mod`        | modulos the two top elements of the stack.                               |
-| nop    | `nop`        | does nothing.                                                            |
-| #      | `#`          | comments out the whole line                                              |
+| Opcode | Usage        | Description                                                                                           |
+| ------ | ------------ | ----------------------------------------------------------------------------------------------------- |
+| push   | `push <int>` | pushes an element to the stack.                                                                       |
+| pall   | `pall`       | prints all the values on the stack, starting from the top of the stack.                               |
+| pint   | `pint`       | prints the int value at the top of the stack, followed by a new line.                                 |
+| pchar  | `pchar`      | prints the char value at the top of the stack, followed by a new line.                                |
+| pstr   | `pstr`       | prints the char values in the stack as a string, followed by a new line.                              |
+| pop    | `pop`        | pops the value at the top of the stack.                                                               |
+| swap   | `swap`       | swaps the two top elements of the stack.                                                              |
+| add    | `add`        | adds the two top elements of the stack.                                                               |
+| sub    | `sub`        | subs the two top elements of the stack.                                                               |
+| div    | `div`        | divs the top element from the second top element of the stack.                                        |
+| mul    | `mul`        | multiplies the two top elements of the stack.                                                         |
+| mod    | `mod`        | modulos the two top elements of the stack.                                                            |
+| rotl   | `rotl`       | rotates the stack to the top. The top element becomes the last, and second top element becomes first. |
+| #      | `#<text>`    | comments out all text after the `#`                                                                   |
