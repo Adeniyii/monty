@@ -105,3 +105,37 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	free(head);
 }
+
+/**
+ * swap - swap the two top elements of the stack.
+ *
+ * @stack: the stack, represented as a pointer to a linked list
+ * @line_number: current line number of file being parsed
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack;
+	stack_t *after_head;
+
+	if (!head || !stack)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	after_head = head->next;
+
+	if (!after_head)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	head->next = after_head->next;
+	head->prev = after_head;
+
+	after_head->prev = NULL;
+	after_head->next = head;
+
+	*stack = after_head;
+}
