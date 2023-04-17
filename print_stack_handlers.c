@@ -70,12 +70,6 @@ void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack;
 
-	if (!stack || !head)
-	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
 	while (head)
 	{
 		if (head->n == 0 || head->n > 127 || head->n < 0)
