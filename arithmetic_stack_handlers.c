@@ -70,7 +70,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * @stack: the stack, represented as a pointer to a linked list
  * @line_number: current line number of file being parsed
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack;
 	stack_t *after_head;
