@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char *structure_mode;
+char *structure_mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,10 +41,12 @@ typedef struct instruction_s
 
 void strip_newline(char *str);
 void free_stack(stack_t *stack);
+int set_mode(char *token);
 
 void throw_usage_error(int line_number);
 void parse_script(FILE *file, stack_t **stack);
 void (*get_handler(char *s))(stack_t **, unsigned int);
+void handle_stack_insert(stack_t **stack, int value_to_push_int);
 
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -58,5 +63,8 @@ void mod(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+
+void queue_handler(stack_t **stack, unsigned int line_number);
+void stack_handler(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

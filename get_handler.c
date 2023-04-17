@@ -6,11 +6,11 @@
  *
  * Return: A pointer to the appropriate function.
  */
-void (*get_handler(char *s))(stack_t**, unsigned int)
+void (*get_handler(char *token))(stack_t**, unsigned int)
 {
 	int i = 0;
 
-	instruction_t ops[] = {
+	instruction_t ops_stack[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
@@ -26,23 +26,25 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 		{"nop", nop},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", queue_handler},
+		{"stack", stack_handler},
 		{"#", nop},
 		{NULL, NULL},
 	};
 
-	strip_newline(s);
+	strip_newline(token);
 
-	while (ops[i].opcode != NULL)
+	while (ops_stack[i].opcode != NULL)
 	{
-		if (strncmp(s, ops[i].opcode, strlen(ops[i].opcode)) == 0)
+		if (strncmp(token, ops_stack[i].opcode, strlen(ops_stack[i].opcode)) == 0)
 		{
-			if (s[strlen(ops[i].opcode)] == '\0')
-				return (ops[i].f);
-			else if (s[0] == '#')
-				return (ops[i].f);
+			if (token[strlen(ops_stack[i].opcode)] == '\0')
+				return (ops_stack[i].f);
+			else if (token[0] == '#')
+				return (ops_stack[i].f);
 		}
 		i++;
 	}
 
-	return (ops[i].f);
+	return (ops_stack[i].f);
 }

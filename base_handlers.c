@@ -8,8 +8,6 @@
 */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_stack;
-	stack_t *head = *stack;
 	char *value_to_push, *endptr;
 	int value_to_push_int;
 
@@ -24,21 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (*endptr != '\0' || endptr == value_to_push)
 		throw_usage_error(line_number);
 
-	new_stack = malloc(sizeof(stack_t));
-
-	if (!new_stack)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	if (head)
-		head->prev = new_stack;
-
-	new_stack->prev = NULL;
-	new_stack->next = head;
-	new_stack->n = value_to_push_int;
-	*stack = new_stack;
+	handle_stack_insert(stack, value_to_push_int);
 }
 
 /**
@@ -98,16 +82,6 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	*stack = after_head;
 }
-
-/**
- * nop - do nothing.
- *
- * @stack: the stack, represented as a pointer to a linked list
- * @line_number: current line number of file being parsed
- */
-void nop(stack_t **stack __attribute__((unused)),
-	unsigned int line_number __attribute__((unused)))
-{}
 
 /**
  * rotl - rotate the stack to the top.

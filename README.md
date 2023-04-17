@@ -78,4 +78,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | mod    | `mod`        | modulos the two top elements of the stack.                                                            |
 | rotl   | `rotl`       | rotates the stack to the top: the top element becomes the last, and second top element becomes first. |
 | rotr   | `rotr`       | rotates the stack to the bottom: the last element becomes the first.                                  |
+| stack  | `stack`      | switches to a stack data structure.                                                                   |
+| queue  | `queue`      | switches to a queue data structure.                                                                   |
 | #      | `#<text>`    | comments out all text after the `#`                                                                   |
