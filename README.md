@@ -66,3 +66,4 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | ------ | ------------ | ----------------------------------------------------------------------- |
 | push   | `push <int>` | pushes an element to the stack.                                         |
 | pall   | `pall`       | prints all the values on the stack, starting from the top of the stack. |
+| pint   | `pint`       | prints the value at the top of the stack, followed by a new line.       |

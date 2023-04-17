@@ -36,12 +36,15 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void free_stack(stack_t *stack);
 void strip_newline(char *str);
+void free_stack(stack_t *stack);
+
 void throw_usage_error(int line_number);
+void parse_script(FILE *file, stack_t **stack);
 void (*get_handler(char *s))(stack_t **, unsigned int);
+
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void parse_script(FILE *file, stack_t **stack);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

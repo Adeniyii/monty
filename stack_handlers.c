@@ -49,7 +49,7 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * pall - print the contents of the stack
  *
- * @stack: the stack to push to, represented as a pointer to a linked list
+ * @stack: the stack, represented as a pointer to a linked list
  * @line_number: current line number of file being parsed
 */
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
@@ -61,4 +61,23 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		printf("%d\n", head->n);
 		head = head->next;
 	}
+}
+
+/**
+ * pint - print the value at the top of the stack, followed by a new line.
+ *
+ * @stack: the stack, represented as a pointer to a linked list
+ * @line_number: current line number of file being parsed
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack;
+
+	if (!stack || !head)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", head->n);
 }

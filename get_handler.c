@@ -13,6 +13,7 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL},
 	};
 
