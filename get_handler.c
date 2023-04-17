@@ -30,9 +30,13 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 
 	while (ops[i].opcode != NULL)
 	{
-		if (strcmp(s, ops[i].opcode) == 0)
-			return (ops[i].f);
-
+		if (strncmp(s, ops[i].opcode, strlen(ops[i].opcode)) == 0)
+		{
+			if (s[strlen(ops[i].opcode)] == '\0')
+				return (ops[i].f);
+			else if (s[0] == '#')
+				return (ops[i].f);
+		}
 		i++;
 	}
 
