@@ -16,6 +16,7 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 		{NULL, NULL},
 	};
 

@@ -2,9 +2,9 @@
 
 The goal of this project is to create an interpreter for Monty ByteCodes files.
 
-The interpreter is written in the `C programming language`, and implements a simple stack, and a queue data structure using linked lists.
+The interpreter is written in the `C programming language`, and implements two simple data structures (a stack and a queue) using linked lists.
 
-The opcodes read from the Monty ByteCodes files will be used to execute operations on the stack and/or queue.
+The opcodes read from the Monty ByteCodes files will be used to execute operations against the stack or the queue.
 
 ## The Monty language
 
@@ -69,3 +69,4 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | pint   | `pint`       | prints the value at the top of the stack, followed by a new line.       |
 | pop    | `pop`        | pops the value at the top of the stack.                                 |
 | swap   | `swap`       | swaps the two top elements of the stack.                                |
+| add    | `add`        | adds the two top elements of the stack.                                 |
