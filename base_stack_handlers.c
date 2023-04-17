@@ -122,23 +122,22 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	stack_t *head = *stack;
 	stack_t *tmp = *stack;
 
-	if (!head || !head->next || !stack)
-		exit(EXIT_SUCCESS);
-
-	while (1)
+	if (head && head->next)
 	{
-		if (!tmp->next)
+		while (1)
 		{
-			*stack = head->next;
-			head->next->prev = NULL;
+			if (!tmp->next)
+			{
+				*stack = head->next;
+				head->next->prev = NULL;
 
-			head->next = NULL;
-			head->prev = tmp;
+				head->next = NULL;
+				head->prev = tmp;
 
-			tmp->next = head;
-			break;
+				tmp->next = head;
+				break;
+			}
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
 	}
-
 }

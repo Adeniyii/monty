@@ -76,5 +76,5 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | div    | `div`        | divs the top element from the second top element of the stack.                                        |
 | mul    | `mul`        | multiplies the two top elements of the stack.                                                         |
 | mod    | `mod`        | modulos the two top elements of the stack.                                                            |
-| rotl   | `rotl`       | rotates the stack to the top. The top element becomes the last, and second top element becomes first. |
+| rotl   | `rotl`       | rotates the stack to the top: the top element becomes the last, and second top element becomes first. |
 | #      | `#<text>`    | comments out all text after the `#`                                                                   |
