@@ -10,24 +10,24 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack;
 	stack_t *head = *stack;
-	char *value_to_push;
+	char *value_to_push, *endptr;
 	int value_to_push_int;
 
 	value_to_push = strtok(NULL, " ");
 
 	if (!value_to_push)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		throw_usage_error(line_number);
 
-	value_to_push_int = atoi(value_to_push);
+	value_to_push_int = strtol(value_to_push, &endptr, 10);
+	strip_newline(endptr);
 
-	if (value_to_push[0] != '0' && value_to_push_int == 0)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+	if (*endptr != '\0')
+		throw_usage_error(line_number);
+
+	if (value_to_push[0] == '-')
+		value_to_push_int = value_to_push_int * -1;
+	else if (value_to_push[0] != '0' && value_to_push_int == 0)
+		throw_usage_error(line_number);
 
 	new_stack = malloc(sizeof(stack_t));
 
@@ -42,7 +42,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	new_stack->prev = NULL;
 	new_stack->next = head;
-	new_stack->n = atoi(value_to_push);
+	new_stack->n = value_to_push_int;
 	*stack = new_stack;
 }
 

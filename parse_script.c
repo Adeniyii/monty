@@ -21,7 +21,7 @@ void parse_script(FILE *file, stack_t **stack)
 		{
 			token = strtok(buffer, " ");
 
-			if (!token)
+			if (!token || strcmp(token, "\n") == 0)
 				break;
 
 			handler = get_handler(token);

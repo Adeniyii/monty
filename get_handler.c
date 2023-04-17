@@ -16,9 +16,11 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 		{NULL, NULL},
 	};
 
+	strip_newline(s);
+
 	while (ops[i].opcode != NULL)
 	{
-		if (strncmp(s, ops[i].opcode, strlen(ops[i].opcode)) == 0)
+		if (strcmp(s, ops[i].opcode) == 0)
 			return (ops[i].f);
 
 		i++;

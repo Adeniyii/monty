@@ -37,6 +37,8 @@ typedef struct instruction_s
 } instruction_t;
 
 void free_stack(stack_t *stack);
+void strip_newline(char *str);
+void throw_usage_error(int line_number);
 void (*get_handler(char *s))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
