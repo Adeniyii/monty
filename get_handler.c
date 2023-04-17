@@ -22,6 +22,7 @@ void (*get_handler(char *s))(stack_t**, unsigned int)
 		{"mul", mul},
 		{"mod", mod},
 		{"nop", nop},
+		{"#", nop},
 		{NULL, NULL},
 	};
 
