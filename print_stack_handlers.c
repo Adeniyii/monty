@@ -37,7 +37,8 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pchar - print the char value at the top of the stack, followed by a new line.
+ * pchar - print the char value at the top of the stack,
+ * followed by a new line.
  *
  * @stack: the stack, represented as a pointer to a linked list
  * @line_number: current line number of file being parsed
@@ -61,12 +62,13 @@ void pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", head->n);
 }
 /**
- * pstr - print the char values in the stack as a string, followed by a new line.
+ * pstr - print the char values in the stack as a string,
+ * followed by a new line.
  *
  * @stack: the stack, represented as a pointer to a linked list
  * @line_number: current line number of file being parsed
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head = *stack;
 
