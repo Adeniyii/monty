@@ -141,3 +141,34 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		}
 	}
 }
+
+/**
+ * rotr - rotate the stack to the bottom,
+ * the last element of the stack becomes the first.
+ *
+ * @stack: the stack, represented as a pointer to a linked list
+ * @line_number: current line number of file being parsed
+ */
+void rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *head = *stack;
+	stack_t *tmp = *stack;
+
+	if (head && head->next)
+	{
+		while (1)
+		{
+			if (!tmp->next)
+			{
+				head->prev = tmp;
+
+				tmp->next = head;
+				tmp->prev = NULL;
+
+				*stack = tmp;
+				break;
+			}
+			tmp = tmp->next;
+		}
+	}
+}

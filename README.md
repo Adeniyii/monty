@@ -2,7 +2,7 @@
 
 The goal of this project is to create an interpreter for Monty ByteCodes files.
 
-The interpreter is written in the `C programming language`, and implements two simple data structures (a stack and a queue) using linked lists.
+The interpreter is written in the `C programming language`, and implements two simple data structures (a stack and a queue) using a doubly linked list.
 
 The opcodes read from the Monty ByteCodes files will be used to execute operations against the stack or the queue.
 
@@ -77,4 +77,5 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | mul    | `mul`        | multiplies the two top elements of the stack.                                                         |
 | mod    | `mod`        | modulos the two top elements of the stack.                                                            |
 | rotl   | `rotl`       | rotates the stack to the top: the top element becomes the last, and second top element becomes first. |
+| rotr   | `rotr`       | rotates the stack to the bottom: the last element becomes the first.                                  |
 | #      | `#<text>`    | comments out all text after the `#`                                                                   |
