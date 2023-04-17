@@ -81,3 +81,27 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", head->n);
 }
+
+/**
+ * pop - remove the value at the top of the stack.
+ *
+ * @stack: the stack, represented as a pointer to a linked list
+ * @line_number: current line number of file being parsed
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack;
+
+	if (!stack || !head)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	*stack = head->next;
+
+	if (head->next)
+		head->next->prev = NULL;
+
+	free(head);
+}
