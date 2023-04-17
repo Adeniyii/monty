@@ -171,13 +171,3 @@ void mod(stack_t **stack, unsigned int line_number)
 	*stack = after_head;
 	free(head);
 }
-
-/**
- * nop - do nothing.
- *
- * @stack: the stack, represented as a pointer to a linked list
- * @line_number: current line number of file being parsed
- */
-void nop(stack_t **stack __attribute__((unused)),
-	unsigned int line_number __attribute__((unused)))
-{}

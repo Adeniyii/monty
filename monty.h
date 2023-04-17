@@ -43,9 +43,10 @@ void throw_usage_error(int line_number);
 void parse_script(FILE *file, stack_t **stack);
 void (*get_handler(char *s))(stack_t **, unsigned int);
 
-void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
