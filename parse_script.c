@@ -32,7 +32,7 @@ void parse_script(FILE *file, stack_t **stack)
 				break;
 			}
 
-			printf("L%d: unknown instruction %s\n", line_number, token);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
 			exit(EXIT_FAILURE);
 		}
 	}
