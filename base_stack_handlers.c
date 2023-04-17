@@ -124,7 +124,7 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 
 	if (head && head->next)
 	{
-		while (1)
+		while (tmp)
 		{
 			if (!tmp->next)
 			{
@@ -151,19 +151,20 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
  */
 void rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-	stack_t *head = *stack;
 	stack_t *tmp = *stack;
+	stack_t *head = *stack;
 
-	if (head && head->next)
+	if (tmp && tmp->next)
 	{
-		while (1)
+		while (tmp)
 		{
 			if (!tmp->next)
 			{
-				head->prev = tmp;
 
+				tmp->prev->next = NULL;
 				tmp->next = head;
 				tmp->prev = NULL;
+				head->prev = tmp;
 
 				*stack = tmp;
 				break;
