@@ -73,4 +73,5 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | sub    | `sub`        | subs the two top elements of the stack.                                 |
 | div    | `div`        | divs the top element from the second top element of the stack.          |
 | mul    | `mul`        | multiplies the two top elements of the stack.                           |
+| mod    | `mod`        | modulos the two top elements of the stack.                           |
 | nop    | `nop`        | does nothing.                                                           |
