@@ -14,13 +14,14 @@ void push(stack_t **stack, unsigned int line_number)
 	int value_to_push_int;
 
 	value_to_push = strtok(NULL, " ");
-	value_to_push_int = atoi(value_to_push);
 
 	if (!value_to_push)
 	{
 		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
+	value_to_push_int = atoi(value_to_push);
 
 	if (value_to_push[0] != '0' && value_to_push_int == 0)
 	{
