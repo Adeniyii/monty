@@ -70,3 +70,4 @@ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 | pop    | `pop`        | pops the value at the top of the stack.                                 |
 | swap   | `swap`       | swaps the two top elements of the stack.                                |
 | add    | `add`        | adds the two top elements of the stack.                                 |
+| nop    | `nop`        | does nothing.                                                           |
