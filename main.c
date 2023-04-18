@@ -28,6 +28,7 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
+	structure_mode = "stack";
 	parse_script(file, &stack);
 
 	fclose(file);
